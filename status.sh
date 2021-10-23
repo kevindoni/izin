@@ -6,7 +6,7 @@ cyan='\x1b[96m'
 white='\x1b[37m'
 bold='\033[1m'
 off='\x1b[m'
-
+figlet -f slant GEO GABUT | lolcat
 AKTIF="Aktif [ ${green}Running${NC} ]"
 ERROR="Error [ ${red}Not Running${NC} ]"
 
@@ -45,6 +45,7 @@ squid=$(systemctl status squid | grep -i "active (running)")
 cron=$(systemctl status cron | grep -i "active (running)")
 fail2ban=$(systemctl status fail2ban | grep -i "active (running)")
 vnstat=$(systemctl status vnstat | grep -i "active (running)")
+sslh=$(systemctl status sslh | grep -i "active (running)")
 
 #======================================
 
@@ -273,6 +274,15 @@ else
       mantap+=("hore25")
 fi
 
+if [[ $vsslh == "" ]]; then
+      ssslh=$ERROR
+      ingfo+=("SSLH Services")
+      dahlah+=("err26")
+else
+      ssslh=$AKTIF
+      mantap+=("hore26")
+fi
+
 
 
 jumlah1="${#mantap[@]}"
@@ -324,6 +334,7 @@ echo -e "   - Squid                                 : $ssquid "
 echo -e "   - Cron                                  : $scron "
 echo -e "   - Fail2Ban                              : $sfail2ban "
 echo -e "   - VnStats                               : $svnstat "
+echo -e "   - SSLH                                  : $ssslh "
 echo -e ""
 echo -e "${cyan}============-[ SERVICES STATUS ]-===========${off}"
 echo -e ""
@@ -339,7 +350,7 @@ for oo in "${ingfo[@]}"
 done
 echo -e ""
 min=0
-sec=30
+sec=10
                 while [ $min -ge 0 ]; do
                         while [ $sec -ge 0 ]; do
                                 echo -ne " [#]  ${cyan}Auto Restart Services Dalam${off} [${green} $min:$sec ${off}]\033[0K\r"
@@ -384,4 +395,3 @@ echo ""
 echo -e "${cyan}==================================${off}"
 echo -e ""
 echo -e "${cyan}Script Mod By Geo Gabut${off}"
-
