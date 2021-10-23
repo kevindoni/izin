@@ -346,7 +346,7 @@ sec=30
                                  let "sec=sec-1"
                                  sleep 1
             done
-            sec=59
+            sec=10
             let "min=min-1"            
       done      
          echo -e " \n${green} Merestart Services... ${off}"
