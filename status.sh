@@ -16,7 +16,7 @@ declare ingfo=()
 
 
              
-#=================================================================================================
+#=====================================
 
 wsdrop=$(systemctl status ws-dropbear | grep -i "active (running)")
 wstls=$(systemctl status ws-stunnel | grep -i "active (running)")
@@ -46,7 +46,7 @@ cron=$(systemctl status cron | grep -i "active (running)")
 fail2ban=$(systemctl status fail2ban | grep -i "active (running)")
 vnstat=$(systemctl status vnstat | grep -i "active (running)")
 
-#=================================================================================================
+#======================================
 
 if [[ $wsdrop == "" ]]; then
       swsdrop=$ERROR
@@ -297,7 +297,7 @@ clear
 
 #echo -e "###################################################################################" | lolcat
 echo -e ""
-echo -e "${cyan}==================================-[ SERVICES STATUS ]-=============================${off}"
+echo -e "${cyan}===========-[ SERVICES STATUS ]-============${off}"
 echo -e ""
 echo -e "   - Dropbear                              : $sdrop "
 echo -e "   - OpenSSH                               : $sssh "
@@ -325,7 +325,7 @@ echo -e "   - Cron                                  : $scron "
 echo -e "   - Fail2Ban                              : $sfail2ban "
 echo -e "   - VnStats                               : $svnstat "
 echo -e ""
-echo -e "${cyan}==================================-[ SERVICES STATUS ]-=============================${off}"
+echo -e "${cyan}============-[ SERVICES STATUS ]-===========${off}"
 echo -e ""
 echo -e "  - Jumlah Services Running [ ${green}$jumlah_aktif${off} ]"
 echo -e "  - Jumlah Services Error [ ${red}$jumlah_error${off} ]"
@@ -381,7 +381,7 @@ sec=30
                 systemctl restart dropbear
 fi
 echo ""
-echo -e "${cyan}===============================================================${off}"
+echo -e "${cyan}==================================${off}"
 echo -e ""
 echo -e "${cyan}Script Mod By Geo Gabut${off}"
 
