@@ -6,7 +6,7 @@ cyan='\x1b[96m'
 white='\x1b[37m'
 bold='\033[1m'
 off='\x1b[m'
-figlet -f slant GEO GABUT | lolcat
+
 AKTIF="Aktif [ ${green}Running${NC} ]"
 ERROR="Error [ ${red}Not Running${NC} ]"
 
@@ -45,7 +45,7 @@ squid=$(systemctl status squid | grep -i "active (running)")
 cron=$(systemctl status cron | grep -i "active (running)")
 fail2ban=$(systemctl status fail2ban | grep -i "active (running)")
 vnstat=$(systemctl status vnstat | grep -i "active (running)")
-sslh=$(systemctl status sslh | grep -i "active (running)")
+ksslh=$(systemctl status sslh | grep -i "active (running)")
 
 #======================================
 
@@ -274,12 +274,12 @@ else
       mantap+=("hore25")
 fi
 
-if [[ $vsslh == "" ]]; then
-      ssslh=$ERROR
+if [[ $ksslh == "" ]]; then
+      sksslh=$ERROR
       ingfo+=("SSLH Services")
       dahlah+=("err26")
 else
-      ssslh=$AKTIF
+      sksslh=$AKTIF
       mantap+=("hore26")
 fi
 
@@ -334,7 +334,7 @@ echo -e "   - Squid                                 : $ssquid "
 echo -e "   - Cron                                  : $scron "
 echo -e "   - Fail2Ban                              : $sfail2ban "
 echo -e "   - VnStats                               : $svnstat "
-echo -e "   - SSLH                                  : $ssslh "
+echo -e "   - SSLH                                  : $sksslh "
 echo -e ""
 echo -e "${cyan}============-[ SERVICES STATUS ]-===========${off}"
 echo -e ""
