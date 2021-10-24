@@ -16,7 +16,7 @@ op='\e[35m'
 or='\033[1;33m'
 bd='\e[1m'
 
-AKTIF="Aktif [ ${green}Running${NC} ]"
+AKTIF="$bd Aktif [ ${green}Running${NC} ]"
 ERROR="Error [ ${red}Not Running${NC} ]"
 
 dahlah=()
