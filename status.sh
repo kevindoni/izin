@@ -6,6 +6,15 @@ cyan='\x1b[96m'
 white='\x1b[37m'
 bold='\033[1m'
 off='\x1b[m'
+yl='\e[32;1m'
+bl='\e[36;1m'
+gl='\e[32;1m'
+rd='\e[31;1m'
+mg='\e[0;95m'
+blu='\e[34m'
+op='\e[35m'
+or='\033[1;33m'
+bd='\e[1m'
 
 AKTIF="Aktif [ ${green}Running${NC} ]"
 ERROR="Error [ ${red}Not Running${NC} ]"
@@ -309,32 +318,32 @@ clear
 echo -e ""
 echo -e "${cyan}===========-[ SERVICES STATUS ]-============${off}"
 echo -e ""
-echo -e " - Dropbear              : $sdrop "
-echo -e " - OpenSSH               : $sssh "
-echo -e " - Stunnel4              : $sssl "
-echo -e " - OpenVPN               : $sovpn "
-echo -e " - WebSocket Dropbear    : $swsdrop"
-echo -e " - WebSocket OpenSSH     : $swsopen"
-echo -e " - WebSocket OpenVPN     : $swsovpn"
-echo -e " - WebSocket TLS         : $swstls"
-echo -e " - VMess TLS             : $sv2ray "
-echo -e " - VMess NON-TLS         : $sv2none "
-echo -e " - VLess TLS             : $svless "
-echo -e " - VLess NON-TLS         : $svnone "
-echo -e " - Shadowsocks           : $sshadow "
-echo -e " - Wireguard             : $swg "
-echo -e " - Trojan                : $strojan "
-echo -e " - IPSec                 : $sipsec "
-echo -e " - SSR                   : $sssr "
-echo -e " - SSTP                  : $ssstp "
-echo -e " - PPTP                  : $spptp "
-echo -e " - L2TP                  : $sl2tp"
-echo -e " - Nginx                 : $snginx "
-echo -e " - Squid                 : $ssquid "
-echo -e " - Cron                  : $scron "
-echo -e " - Fail2Ban              : $sfail2ban "
-echo -e " - VnStats               : $svnstat "
-echo -e " - SSLH                  : $sksslh "
+echo -e " \e[1;32m- $bd Dropbear              : $sdrop "
+echo -e " \e[1;32m- $bd OpenSSH               : $sssh "
+echo -e " \e[1;32m- $bd Stunnel4              : $sssl "
+echo -e " \e[1;32m- $bd OpenVPN               : $sovpn "
+echo -e " \e[1;32m- $bd WebSocket Dropbear    : $swsdrop"
+echo -e " \e[1;32m- $bdWebSocket OpenSSH     : $swsopen"
+echo -e " \e[1;32m- $bdWebSocket OpenVPN     : $swsovpn"
+echo -e " \e[1;32m- $bdWebSocket TLS         : $swstls"
+echo -e " \e[1;32m- $bdVMess TLS             : $sv2ray "
+echo -e " \e[1;32m- $bdVMess NON-TLS         : $sv2none "
+echo -e " \e[1;32m- $bdVLess TLS             : $svless "
+echo -e " \e[1;32m- $bdVLess NON-TLS         : $svnone "
+echo -e " \e[1;32m- $bdShadowsocks           : $sshadow "
+echo -e " \e[1;32m- $bdWireguard             : $swg "
+echo -e " \e[1;32m- $bdTrojan                : $strojan "
+echo -e " \e[1;32m- $bdIPSec                 : $sipsec "
+echo -e " \e[1;32m- $bdSSR                   : $sssr "
+echo -e " \e[1;32m- $bdSSTP                  : $ssstp "
+echo -e " - $bdPPTP                  : $spptp "
+echo -e " - $bdL2TP                  : $sl2tp"
+echo -e " - $bdNginx                 : $snginx "
+echo -e " - $bdSquid                 : $ssquid "
+echo -e " - $bdCron                  : $scron "
+echo -e " - $bdFail2Ban              : $sfail2ban "
+echo -e " - $bdVnStats               : $svnstat "
+echo -e " - $bdSSLH                  : $sksslh "
 echo -e ""
 echo -e "${cyan}============-[ SERVICES STATUS ]-===========${off}"
 echo -e ""
