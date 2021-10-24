@@ -316,7 +316,7 @@ clear
 
 #echo -e "###################################################################################" | lolcat
 echo -e ""
-echo -e "${cyan}===========-[ SERVICES STATUS ]-============${off}"
+echo -e "${cyan}===========-[ SERVICES STATUS ]-================${off}"
 echo -e ""
 echo -e " $mg - $off $bd Dropbear          $off    : $sdrop "
 echo -e " $mg - $off $bd OpenSSH           $off    : $sssh "
@@ -345,7 +345,7 @@ echo -e " $mg - $off $bd Fail2Ban        $off      : $sfail2ban "
 echo -e " $mg - $off $bd VnStats         $off      : $svnstat "
 echo -e " $mg - $off $bd SSLH            $off      : $sksslh "
 echo -e ""
-echo -e "${cyan}============-[ SERVICES STATUS ]-===========${off}"
+echo -e "${cyan}============-[ SERVICES STATUS ]-===============${off}"
 echo -e ""
 echo -e "  - Jumlah Services Running [ ${green}$jumlah_aktif${off} ]"
 echo -e "  - Jumlah Services Error [ ${red}$jumlah_error${off} ]"
@@ -401,6 +401,6 @@ sec=10
                 systemctl restart dropbear
 fi
 echo ""
-echo -e "${cyan}============================================${off}"
+echo -e "${cyan}================================================${off}"
 echo -e ""
 echo -e "${cyan}Script Mod By Geo Gabut${off}"
