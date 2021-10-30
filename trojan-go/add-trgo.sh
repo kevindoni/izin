@@ -1,33 +1,20 @@
 #!/bin/bash
-
-grey='\x1b[90m'
-red='\x1b[91m'
-green='\x1b[92m'
-yellow='\x1b[93m'
-blue='\x1b[94m'
-purple='\x1b[95m'
-cyan='\x1b[96m'
-white='\x1b[37m'
-bold='\033[1m'
-off='\x1b[m'
-flag='\x1b[47;41m'
-NC='\x1b[m'
-ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
-CITY=$(curl -s ipinfo.io/city )
-COUNTRY=$(curl -s ipinfo.io/country )
-
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Script By Geo"
 clear
-uuid1=$(cat /etc/trojan-go/uuid.txt)
+uuid=$(cat /etc/trojan-go/uuid.txt)
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
 else
 domain=$IP
 fi
-trgo="$(cat ~/log-install.txt | grep -i TrojanGO | cut -d: -f2|sed 's/ //g')"
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; do
-		read -rp "Masukan Key : " keyy
+trgo="$(cat ~/log-install.txt | grep -w "TrojanGO" | cut -d: -f2|sed 's/ //g')"
+until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
+  read -rp "Masukan Key : " keyy
         read -rp "Remarks : " -e user
 		user_EXIST=$(grep -w $user /etc/trojan-go/akun.conf | wc -l)
         user_EXISTS=$(grep -w $user /etc/trojan/akun.conf | wc -l)
@@ -51,32 +38,7 @@ sed -i '/"'""$uuid1""'"$/a\,"'""$users""'"' /etc/trojan-go/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
 systemctl restart trojan-go.service
-trojangolink="trojan-go://${user}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
-cat > client.json << END
-{
-    "run_type": "client",
-    "local_addr": "127.0.0.1",
-    "local_port": 1080,
-    "remote_addr": "${domain}",
-    "remote_port": "${trojango}",
-
-    "dns": [
-        "1.1.1.1"
-    ],
-    "password": [
-        "${users}"
-    ],
-    "ssl": {
-        "sni": "${domain}"
-    },
-    "websocket": {
-        "enabled": true,
-        "path": "\/trojango",
-        "hostname": "${domain}"
-    }
-}
-END
-mv client.json /home/vps/public_html/${user}-IgniterGO.json
+link="trojan-go://${user}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
 clear
 echo -e ""
 echo -e "${red}=================================${off}"
@@ -92,11 +54,12 @@ echo -e " Key Trojan-GO    : ${keyy}"
 echo -e " Password Igniter   : ${users}"
 echo -e " Path WebSocket     : /trojango${off}"
 echo -e "${red}=================================${off}"
-echo -e " Trojan-GO   : ${trojangolink}" | lolcat
-echo -e "${red}=================================${off}"
-echo -e " Igniter-GO  : http://${domain}:81/${user}-IgniterGO.json" | lolcat
-echo -e "${red}=================================${off}"
 echo -e " ${white}Aktif Selama   : $masaaktif Hari"
 echo -e " Dibuat Pada    : $tnggl"
 echo -e " Berakhir Pada  : $expe${off}"
 echo -e "${red}=================================${off}"
+echo -e "========================="
+echo -e "Link TrGo  : ${link}"
+echo -e " Igniter-GO  : http://${domain}:81/${user}-IgniterGO.json"
+echo -e "========================="
+echo -e "Script By GEO GABUT"
