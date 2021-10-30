@@ -25,7 +25,7 @@ domain=$(cat /etc/v2ray/domain)
 else
 domain=$IP
 fi
-trgo="$(cat ~/log-install.txt | grep -w "TrojanGO" | cut -d: -f2|sed 's/ //g')"
+trgo="$(cat ~/log-install.txt | grep -i TrojanGO | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; do
 		read -rp "Masukan Key : " keyy
         read -rp "Remarks : " -e user
@@ -50,8 +50,8 @@ tnggl="$tgl2 $bln2, $thn2"
 sed -i '/"'""$uuid1""'"$/a\,"'""$users""'"' /etc/trojan-go/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
-systemctl restart trojan-go
-link="trojan-go://${user}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
+systemctl restart trojan-go.service
+trojangolink="trojan-go://${user}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
 cat > client.json << END
 {
     "run_type": "client",
@@ -71,7 +71,7 @@ cat > client.json << END
     },
     "websocket": {
         "enabled": true,
-        "Path       : /trojango",
+        "path": "\/trojango",
         "hostname": "${domain}"
     }
 }
@@ -90,11 +90,11 @@ echo -e " Host               : ${domain}"
 echo -e " Port Trojan-GO     : ${trojango}"
 echo -e " Key Trojan-GO    : ${keyy}"
 echo -e " Password Igniter   : ${users}"
-echo -e " Path WebSocket     : /brody${off}"
+echo -e " Path WebSocket     : /trojango${off}"
 echo -e "${red}=================================${off}"
-echo -e " Trojan-GO   : ${trojangolink}"
+echo -e " Trojan-GO   : ${trojangolink}" | lolcat
 echo -e "${red}=================================${off}"
-echo -e " Igniter-GO  : http://${domain}:81/${user}-IgniterGO.json"
+echo -e " Igniter-GO  : http://${domain}:81/${user}-IgniterGO.json" | lolcat
 echo -e "${red}=================================${off}"
 echo -e " ${white}Aktif Selama   : $masaaktif Hari"
 echo -e " Dibuat Pada    : $tnggl"
