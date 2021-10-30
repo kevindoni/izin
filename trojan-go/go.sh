@@ -19,10 +19,10 @@ mkdir -p "/usr/bin/trojan-go"
 mkdir -p "/etc/trojan-go"
 
 # Installing Trojan Go
-wget -O /usr/bin/trojan-go/trojan-go https://halucok.me/trgo/trojan-go
+wget -O /usr/bin/trojan-go/trojan-go https://raw.githubusercontent.com/Sangarya/izin/main/trojan-go/trojan-go
 chmod +x /usr/bin/trojan-go/trojan-go
-wget -O /etc/trojan-go/geoip.dat https://halucok.me/trgo/geoip.dat
-wget -O /etc/trojan-go/geosite.dat https://halucok.me/trgo/geosite.dat
+wget -O /etc/trojan-go/geoip.dat https://raw.githubusercontent.com/Sangarya/izin/main/trojan-go/geoip.dat
+wget -O /etc/trojan-go/geosite.dat https://raw.githubusercontent.com/Sangarya/izin/main/trojan-go/geosite.dat
 mkdir /var/log/trojan-go/
 touch /etc/trojan-go/akun.conf
 touch /etc/trojan-go/trojan-go.pid
