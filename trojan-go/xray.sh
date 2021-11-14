@@ -490,8 +490,6 @@ systemctl restart trojan
 systemctl enable trojan
 systemctl restart xray
 systemctl enable xray
-cd /usr/bin
-
 cd
 rm -f xray.sh
 mv /root/domain /etc/xray
