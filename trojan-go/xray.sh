@@ -491,32 +491,7 @@ systemctl enable trojan
 systemctl restart xray
 systemctl enable xray
 cd /usr/bin
-wget -O add-ws "https://halucok.me/add-ws.sh"
-wget -O add-vless "https://halucok.me/add-vless.sh"
-wget -O add-tr "https://halucok.me/add-tr.sh"
-wget -O del-ws "https://halucok.me/del-ws.sh"
-wget -O del-vless "https://halucok.me/del-vless.sh"
-wget -O del-tr "https://halucok.me/del-tr.sh"
-wget -O cek-ws "https://halucok.me/cek-ws.sh"
-wget -O cek-vless "https://halucok.me/cek-vless.sh"
-wget -O cek-tr "https://halucok.me/cek-tr.sh"
-wget -O renew-ws "https://halucok.me/renew-ws.sh"
-wget -O renew-vless "https://halucok.me/renew-vless.sh"
-wget -O renew-tr "https://halucok.me/renew-tr.sh"
-wget -O certv2ray "https://halucok.me/cert.sh"
-chmod +x add-ws
-chmod +x add-vless
-chmod +x add-tr
-chmod +x del-ws
-chmod +x del-vless
-chmod +x del-tr
-chmod +x cek-ws
-chmod +x cek-vless
-chmod +x cek-tr
-chmod +x renew-ws
-cmod +x renew-vless
-chmod +x renew-tr
-chmod +x certv2ray
+
 cd
-rm -f ins-vt.sh
+rm -f xray.sh
 mv /root/domain /etc/xray
