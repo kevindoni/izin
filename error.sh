@@ -180,5 +180,5 @@ if [ ! -e /root/log-install.txt ]; then
 fi
 echo " Reboot 5 Detik"
 sleep 5
-rm -f setup.sh
+rm -f error.sh
 reboot
